@@ -1,44 +1,78 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: hsl(222.2 84% 4.9%);
-  --color-foreground: hsl(210 40% 98%);
+  --font-sans: 'Inter', ui-sans-serif, system-ui;
+
+  --color-background: #ffffff;
+  --color-foreground: #09090b; 
   
-  --color-primary: hsl(217.2 91.2% 59.8%);
-  --color-primary-foreground: hsl(222.2 47.4% 11.2%);
-  
-  --color-secondary: hsl(217.2 32.6% 17.5%);
-  --color-secondary-foreground: hsl(210 40% 98%);
-  
-  --color-muted: hsl(217.2 32.6% 17.5%);
-  --color-muted-foreground: hsl(215 20.2% 65.1%);
-  
-  --color-accent: hsl(217.2 32.6% 17.5%);
-  --color-accent-foreground: hsl(210 40% 98%);
-  
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
-  --radius-md: calc(0.5rem - 2px);
-  --radius-sm: calc(0.5rem - 4px);
+  --radius-xl: 0.75rem;
   
-  --animate-spin-slow: spin 3s linear infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 @layer base {
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-white text-zinc-950 antialiased font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-.glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+.sidebar-border {
+  @apply border-r border-zinc-200;
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500;
+.header-border {
+  @apply border-b border-zinc-200;
 }
 
-.card-gradient {
-  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent);
+.card-border {
+  @apply border border-zinc-200 rounded-lg bg-white;
+}
+
+.nav-item {
+  @apply flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-500 rounded-md transition-all hover:text-zinc-950 hover:bg-zinc-100;
+}
+
+.nav-item-active {
+  @apply text-zinc-950 bg-zinc-100;
+}
+
+.sidebar-label {
+  @apply text-[11px] font-bold text-zinc-400 uppercase tracking-tight px-3 mb-2 mt-6;
+}
+
+.chart-container {
+  @apply w-full h-[300px];
+}
+
+/* Scrollbar styling to match modern UI */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d8;
 }
